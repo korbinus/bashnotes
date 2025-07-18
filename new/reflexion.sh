@@ -18,7 +18,7 @@
 #     51 Franklin Street, 5th Floor
 #     Boston, MA 02110-1301 USA
 
-source bin/setEnv.sh
+source new/setEnv.sh
 
 # Check if parameters
 if [ "$#" -ne 2 ]; then
@@ -29,4 +29,4 @@ fi
 domain="$1"
 subject="$2"
 
-./bin/bashnote.sh "$subject" "./$domain/$TWO" "./templates/reflexion.md"
+./new/bashnote.sh "$subject" "./$domain/$TWO" "./templates/reflexion.md"

@@ -19,7 +19,7 @@
 #     Boston, MA 02110-1301 USA
 
 
-source bin/setEnv.sh
+source new/setEnv.sh
 
 if [ "${#@}" -lt 3 ]; then
   echo "Usage: $0 <parameter> <destination_folder> <file_path>"

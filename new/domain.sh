@@ -18,15 +18,18 @@
 #     51 Franklin Street, 5th Floor
 #     Boston, MA 02110-1301 USA
 
-source bin/setEnv.sh
+source new/setEnv.sh
 
-# Check if parameters
-if [ "$#" -ne 2 ]; then
-    echo "Usage: $0 <domain> <subject>"
+# Check if parameter
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <domain>"
     exit 1
 fi
 
-domain="$1"
-subject="$2"
+OUTPUT_DIR="$1"
 
-./bin/bashnote.sh "$subject" "./$domain/$THREE" "./templates/summary.md"
+mkdir $OUTPUT_DIR
+mkdir $OUTPUT_DIR/$ONE
+mkdir $OUTPUT_DIR/$TWO
+mkdir $OUTPUT_DIR/$THREE
+mkdir $OUTPUT_DIR/refs
