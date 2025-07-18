@@ -1,0 +1,5 @@
+#name of the three types of notes
+export NOTES="notes"
+export REFLECTIONS="réflexions"
+export SYNTHESIS="synthèses"
+export EDITOR="codium"
