@@ -29,4 +29,4 @@ fi
 domain="$1"
 subject="$2"
 
-./new/bashnote.sh "$subject" "./$domain/$THREE" "./templates/summary.md"
+./new/bashnote.sh "$subject" "./$DOMAINS/$domain/$THREE" "./templates/summary.md"
