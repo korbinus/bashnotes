@@ -26,10 +26,10 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-OUTPUT_DIR="$1"
+OUTPUT_DIR="$DOMAINS/$1"
 
-mkdir $OUTPUT_DIR
-mkdir $OUTPUT_DIR/$ONE
-mkdir $OUTPUT_DIR/$TWO
-mkdir $OUTPUT_DIR/$THREE
-mkdir $OUTPUT_DIR/refs
+mkdir -p $OUTPUT_DIR
+mkdir -p $OUTPUT_DIR/$ONE
+mkdir -p $OUTPUT_DIR/$TWO
+mkdir -p $OUTPUT_DIR/$THREE
+mkdir -p $OUTPUT_DIR/refs
