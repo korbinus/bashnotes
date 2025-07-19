@@ -151,6 +151,8 @@ Each tag file will contain:
 - A list of all notes using that tag with relative paths
 - Links to each note for easy navigation
 
+> **NOTE** You'll need to run it as often as necessary
+
 ## File Structure Example
 
 Here's what your complete knowledge base might look like:
