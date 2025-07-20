@@ -18,15 +18,11 @@
 #     51 Franklin Street, 5th Floor
 #     Boston, MA 02110-1301 USA
 
+VERSION="0.1.0"
+
 CONFIG_FILE="config.txt"
 
-# Vérifier si le fichier de configuration existe
-if [ -f "$CONFIG_FILE" ]; then
-    source "$CONFIG_FILE"
-else
-    echo "Erreur : Le fichier de configuration '$CONFIG_FILE' est introuvable."
-    exit 1
-fi
+source "$CONFIG_FILE" || { echo "Error sourcing $CONFIG_FILE"; exit 1; }
 
 export ONE="1_$NOTES"
 export TWO="2_$REFLECTIONS"

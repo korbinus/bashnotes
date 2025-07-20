@@ -19,13 +19,33 @@ The DNRS model is designed to help you process and internalize information effec
 
 1. **Domains**: Broad categories that represent areas of interest or expertise.
 2. **Notes**: Individual pieces of information, ideas, or insights related to a specific domain.
-3. **Reflections**: Deeper analysis or synthesis of notes within a domain.
-4. **Summaries**: High-level overviews that capture the essence of a domain based on its notes and reflections.
+3. **Reflections**: Reflections about a subject or within a domain.
+4. **Summaries**: Summaries or synthesis of notes about a subject or within a domain.
 
 This model ensures that you actively engage with your knowledge, transforming raw information into meaningful insights.
 
 
 ## Getting Started
+
+### Requirements
+
+To use this system effectively, you'll need:
+
+1. A Unix-like shell environment with Bash:
+   - Linux (any distribution)
+   - macOS
+   - Windows Subsystem for Linux (WSL) on Windows 10/11
+
+2. A text editor of your choice:
+   - **Recommended**: Visual Studio Code or VSCodium (lightweight, open-source alternative to VS Code)
+     - Install from [code.visualstudio.com](https://code.visualstudio.com/) or [vscodium.com](https://vscodium.com/)
+   - Other options: Nano, Vim, Emacs
+
+3. Basic command line familiarity:
+   - Navigating directories
+   - Running shell scripts
+
+### Download Bashnotes
 
 Dowload Bashnotes from [Github](https://github.com/korbinus/bashnotes), either by downloading a zip file or by cloning the repository:
 
@@ -75,7 +95,7 @@ The created directory structure will look like this:
 └── refs/             # For storing reference documents
 ```
 
-You can call for instance your first domain **General** until you find better others.
+You might initially name your first domain **General** until you think of more specific alternatives.
 
 ### Creating a New Note
 
