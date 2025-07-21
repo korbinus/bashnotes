@@ -59,10 +59,11 @@ FIND_ARGS=( "." "-type" "f" -name "*.md" "(" "${FIND_CONDITIONS[@]:1}" ")" )
 
 find "${FIND_ARGS[@]}" -print0 | while IFS= read -r -d $'\0' file; do
     relative_file="${file#./}"
+    clean_filename="${relative_file#*$DOMAINS/}"
     extracted_tags=$(extract_hashtags "$relative_file")
 
     for tag in $extracted_tags; do
-        echo "${tag}::${relative_file}" >> "$TEMP_TAGS_FILE"
+        echo "${tag}::${relative_file}::${clean_filename}" >> "$TEMP_TAGS_FILE"
     done
 done
 
@@ -74,6 +75,7 @@ LC_ALL=C sort "$TEMP_TAGS_FILE" | uniq | awk -F'::' -v output_dir="$OUTPUT_DIR" 
     {
         tag = $1;
         file = $2;
+        clean_filename = $3;
 
         if (tag != current_tag) {
             # New hashtag, close previous opened file, if any
@@ -82,10 +84,10 @@ LC_ALL=C sort "$TEMP_TAGS_FILE" | uniq | awk -F'::' -v output_dir="$OUTPUT_DIR" 
             }
             current_tag = tag;
             output_file = output_dir "/" tag ".md";
-            print "# " tag "\n" > output_file;
+            print "# #" tag "\n" > output_file;
         }
         # Add markdown link to current file
-        print "- [" file "](../" file ")" >> output_file;
+        print "- [" clean_filename "](../" file ")" >> output_file;
     }
     END {
         # Close previous opened file, if any
