@@ -27,9 +27,4 @@ if [ "$#" -ne 1 ]; then
 fi
 
 OUTPUT_DIR="$DOMAINS/$1"
-
-mkdir -p $OUTPUT_DIR
-mkdir -p $OUTPUT_DIR/$ONE
-mkdir -p $OUTPUT_DIR/$TWO
-mkdir -p $OUTPUT_DIR/$THREE
-mkdir -p $OUTPUT_DIR/refs
+mkdir -p "$OUTPUT_DIR"/{"$ONE","$TWO","$THREE",refs} || { echo "Error creating domain $1"; exit 1; }
