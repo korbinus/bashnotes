@@ -22,7 +22,7 @@
 source new/setEnv.sh
 
 if [ "${#@}" -lt 3 ]; then
-  echo "Usage: $0 <parameter> <destination_folder> <file_path>"
+  echo "Usage: $0 <parameter> <destination_folder> <template_file_path>"
   exit 1
 fi
 # Parameters 
@@ -36,8 +36,19 @@ DATE=$(date +%Y-%m-%d)
 PARAMETER_FILE=$(echo "$PARAMETER" | tr ' ' '_')
 DESTINATION_FILE="${DESTINATION_FOLDER}/${DATE}_${PARAMETER_FILE}.md"
 
-# Create the destination folder if it doesn't exist
-mkdir -p "$DESTINATION_FOLDER"
+# Create domain folder if it doesn't exist already
+if ! [ -d "$DESTINATION_FOLDER" ]; then
+  DOMAIN="${DESTINATION_FOLDER#*/$DOMAINS/}"
+  DOMAIN="${DOMAIN%%/*}"
+
+  read -p "Domain $DOMAIN does not exist. Do you want to create it ? (Y/[N])" response
+  response=$(echo "$response" | tr '[:upper:]' '[:lower:]')
+  if [[ -z "$response" || "$response" != "y" ]]; then
+    exit 0
+  fi
+
+  ./new/domain.sh "$DOMAIN"
+fi
 
 # Copy the template into the new note
 cp "$SOURCE_FILE" "$DESTINATION_FILE"
