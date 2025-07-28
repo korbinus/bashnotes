@@ -82,7 +82,7 @@ $ new/domain.sh <Domain name>
 ```
 
 This will automatically:
-1. Create a new folder named after your domain (e.g., `Programming`, `Health`)
+1. Create a new folder named after your domain (e.g., `Programming`, `Health`, `House`, `Summer trip 2025`)
 2. Set up the basic directory structure with subfolders for notes, reflections, and summaries
 3. Create a `refs` directory for storing reference documents
 
