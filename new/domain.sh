@@ -26,5 +26,8 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-OUTPUT_DIR="$DOMAINS/$1"
+PARAMETER="$1"
+DOMAIN=$(echo "$PARAMETER" | tr ' ' '_')
+
+OUTPUT_DIR="$DOMAINS/$DOMAIN"
 mkdir -p "$OUTPUT_DIR"/{"$ONE","$TWO","$THREE",refs} || { echo "Error creating domain $1"; exit 1; }
